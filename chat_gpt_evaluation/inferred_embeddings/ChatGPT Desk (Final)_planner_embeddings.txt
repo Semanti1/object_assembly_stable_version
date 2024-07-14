@@ -1,0 +1,1 @@
+cord,outlet|lightbulb,shade|lightbulb,pullchain|base,shade|cord,pullchain

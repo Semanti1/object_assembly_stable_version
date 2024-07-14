@@ -1,0 +1,1 @@
+chimney,kerosenetank|chimney,lighter|burner,kerosenetank|burner,lighter|kerosenetank,lighter|burner,chimney|chimney,wick

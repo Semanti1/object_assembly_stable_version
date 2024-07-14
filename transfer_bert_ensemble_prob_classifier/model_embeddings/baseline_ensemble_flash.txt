@@ -1,0 +1,1 @@
+lightbulb,switchandcircuit|lens,switchandcircuit|batteries,switchandcircuit|lens,lightbulb
