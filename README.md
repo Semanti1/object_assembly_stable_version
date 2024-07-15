@@ -1,3 +1,6 @@
+In causal_furniture.cpp, uncomment one of lines 23-28 depending on which object we are running the experiment for. Same for lines 193-198 in isValid function. This step needs to be done BEFORE running any experiment. 
+
+
 To compile:
 
 g++ *.cpp  -lboost_program_options -g
@@ -26,3 +29,6 @@ Descriptions:
 --confidence - value between 0 and 1. It denotes the level of confidence that causal link implies physical link in assembly.A value of 0.5 denotes random assignment, i.e., no causal knowledge. Ideally value should be set to more than 0.5. 
 
 --outputfile - Path to output file.
+
+
+In experiment.cpp -> comment out lines 58 and 80 if you don't need to see the state. This will speed things up. In mcts.cpp, comment out lines 42 and 83 if you don't want to display belief state. This will also speed things up.

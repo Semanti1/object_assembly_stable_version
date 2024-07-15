@@ -157,7 +157,7 @@ int main(int argc, char* argv[])
         std::pair<std::string, std::string> connection;
         std::vector<std::string> parts;
         cout << "args" << number << " " << causalfilename << endl;
-        cout << "confidence: " << confidence << endl;
+        cout << "confidence: " << confidence << "knowledge: " << knowledge.TreeLevel << knowledge.RolloutLevel << endl;
         ifstream file;
         file.open(causalfilename);
         cout << file.is_open() << endl;

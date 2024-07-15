@@ -55,7 +55,7 @@ void EXPERIMENT::Run()
 
     STATE* state = Real.CreateStartStateReal(1);
     //cout << "real state before run " << endl;
-    //Real.DisplayState(*state, cout);
+    Real.DisplayState(*state, cout);
     //cout << "Done display" << endl;
     if (SearchParams.Verbose >= 1)
         Real.DisplayState(*state, cout);
@@ -77,7 +77,7 @@ void EXPERIMENT::Run()
         
         terminal = Real.Step(*state, action, observation, reward);
         cout << "observation: " << observation << endl;
-        //Real.DisplayState(*state, cout);
+        Real.DisplayState(*state, cout);
         //cout << "state " << endl;
         //Real.DisplayState(*state, cout);
         Results.Reward.Add(reward);
