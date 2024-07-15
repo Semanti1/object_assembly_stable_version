@@ -9,26 +9,26 @@
 using namespace std;
 using namespace UTILS;
 
-CAUSAL_FURNITURE::CAUSAL_FURNITURE(std::string name = "kerosene_lamp", int numparts = 6, bool causal = true, std::vector<std::pair<std::string, std::string>> allpairs = {}, double conf=0.75)
-:   furniture_name(name),
-    numParts(numparts),
-    causal(causal),
-    allpairs(allpairs),
-    conf(conf)
+
+CAUSAL_FURNITURE::CAUSAL_FURNITURE(std::string name, int numparts, bool causal, std::vector<std::pair<std::string, std::string> > allpairs, double conf)
+    : furniture_name(name),
+      numParts(numparts),
+      causal(causal),
+      allpairs(allpairs),
+      conf(conf)
+
 {
     NumActions = numparts * (numparts - 1) / 2;
-    NumObservations = 2;
     //RewardRange = 100;// NumActions / 4.0;
     //Discount = 0.95;
-  // names = { "kerosenetank","burner", "chimney", "wick", "lighter" };
+  names = { "kerosenetank","burner", "chimney", "wick", "lighter" };
   //  names = { "batteries", "switchandcircuit", "lens", "lightbulb"};
-  names = { "cord","outlet", "base", "lightbulb", "pullchain", "shade"};
+//   names = { "cord","outlet", "base", "lightbulb", "pullchain", "shade"};
   // names = { "backplate","lampbody","cord","lightbulb" };
   //  names = { "frame","grip","triggerguard","barrel","hammer","sights","trigger","magazine","firingpin","cartridge","slide" };
    // names = { "watersupply","taps","faucet","faucetaerator","basin", "shutoff", "tailpiece", "drain","sinktrap" };
     cout << "numparts" << numParts << Discount <<endl;
     cout << "all pair size" << allpairs.size() << endl;
-    
 }
 
 STATE* CAUSAL_FURNITURE::Copy(const STATE& state) const
@@ -191,9 +191,9 @@ else
 bool CAUSAL_FURNITURE::isValid(std::pair<std::string, std::string> connection) const
 {
    // std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("backplate","lampbody"), std::make_pair("lampbody","lightbulb"), std::make_pair("cord","lightbulb") };
-  //std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("kerosenetank", "burner"), std::make_pair("burner","wick"), std::make_pair("lighter","wick"),std::make_pair("chimney","burner") };
+  std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("kerosenetank", "burner"), std::make_pair("burner","wick"), std::make_pair("lighter","wick"),std::make_pair("chimney","burner") };
  // std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("batteries", "switchandcircuit"),std::make_pair("batteries", "lightbulb"), std::make_pair("switchandcircuit","lightbulb"), std::make_pair("lens","lightbulb") };
-   std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("outlet", "cord"),std::make_pair("cord", "lightbulb"), std::make_pair("base","lightbulb"), std::make_pair("pullchain","lightbulb"), std::make_pair("shade","lightbulb") };
+//    std::vector<std::pair<std::string, std::string> > validconnections{ std::make_pair("outlet", "cord"),std::make_pair("cord", "lightbulb"), std::make_pair("base","lightbulb"), std::make_pair("pullchain","lightbulb"), std::make_pair("shade","lightbulb") };
    // std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("firingpin","slide"), std::make_pair("sights","slide"),std::make_pair("barrel","slide"),std::make_pair("trigger","hammer"),std::make_pair("hammer","slide"),std::make_pair("slide","frame"),std::make_pair("magazine","frame"),std::make_pair("trigger","frame"),std::make_pair("triggerguard","frame"),std::make_pair("grip","frame"),std::make_pair("cartridge","magazine") };
    // std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("shutoff","watersupply"),std::make_pair("watersupply","faucet"), std::make_pair("taps","faucet"), std::make_pair("faucetaerator","faucet"), std::make_pair("sinktrap","tailpiece"), std::make_pair("tailpiece", "drain"), std::make_pair("drain", "basin") };
     auto it3 = std::find_if(validconnections.begin(), validconnections.end(), [&](std::pair<std::string, std::string> obj) { return ((obj.first == connection.first) && (obj.second == connection.second)); });
