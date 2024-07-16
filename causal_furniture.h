@@ -25,7 +25,7 @@ public:
 class CAUSAL_FURNITURE : public SIMULATOR
 {
 public:
-    CAUSAL_FURNITURE(std::string name = "kerosene_lamp", int numparts = 6, bool causal = true, std::vector<std::pair<std::string, std::string> > allpairs = {}, double conf = 0.75);
+    CAUSAL_FURNITURE(std::string name = "kerosene_lamp", int numparts = 6, bool causal = true, std::vector<std::pair<std::string, std::string> > allpairs = {}, double conf = 0.9);
 
     virtual STATE* Copy(const STATE& state) const;
     virtual void Validate(const STATE& state) const;
