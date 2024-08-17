@@ -1,0 +1,1 @@
+bowl,frame|beaters,housing|frame,housing|fan,motor|circuit,cord|gear,motor|cord,motor|bowl,housing|motor,switch|beaters,gear

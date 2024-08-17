@@ -1,0 +1,1 @@
+hull,plug|shaft,wheels|handle,rudder|pedals,shaft|handle,hull|hull,pedals|plug,wheels|hull,seats

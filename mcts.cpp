@@ -39,7 +39,7 @@ MCTS::MCTS(const SIMULATOR& simulator, const PARAMS& params)
     cout << "start " << "in mcts" << endl;
     for (int i = 0; i < Params.NumStartStates; i++)
         Root->Beliefs().AddSample(Simulator.CreateStartState());
-    Simulator.DisplayBeliefs(Root->Beliefs(), cout);
+   // Simulator.DisplayBeliefs(Root->Beliefs(), cout);
 }
 
 MCTS::~MCTS()
@@ -80,7 +80,7 @@ bool MCTS::Update(int action, int observation, double reward)
         return false;
 
    // if (Params.Verbose >= 1)
-        Simulator.DisplayBeliefs(beliefs, cout);
+     //   Simulator.DisplayBeliefs(beliefs, cout);
       //  cout << "num part : " << beliefs.GetNumSamples() << endl;
     // Find a state to initialise prior (only requires fully observed state)
     const STATE* state = 0;

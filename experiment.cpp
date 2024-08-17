@@ -55,7 +55,7 @@ void EXPERIMENT::Run()
 
     STATE* state = Real.CreateStartStateReal(1);
     //cout << "real state before run " << endl;
-    Real.DisplayState(*state, cout);
+    //Real.DisplayState(*state, cout);
     //cout << "Done display" << endl;
     if (SearchParams.Verbose >= 1)
         Real.DisplayState(*state, cout);
@@ -72,12 +72,12 @@ void EXPERIMENT::Run()
         std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2b - t2);
         //cout << "Time in this step: " << time_span.count() << endl;
        
-        cout << "action " << endl;
-        Real.DisplayAction(action, cout);
+        //cout << "action " << endl;
+        //Real.DisplayAction(action, cout);
         
         terminal = Real.Step(*state, action, observation, reward);
-        cout << "observation: " << observation << endl;
-        Real.DisplayState(*state, cout);
+        //cout << "observation: " << observation << endl;
+        //Real.DisplayState(*state, cout);
         //cout << "state " << endl;
         //Real.DisplayState(*state, cout);
         Results.Reward.Add(reward);

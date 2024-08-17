@@ -1,0 +1,1 @@
+hammer,trigger|cartridge,sights|barrel,grip|barrel,frame|magazine,slide|cartridge,slide|firingpin,hammer|frame,grip|frame,magazine|frame,triggerguard|grip,sights|frame,hammer|barrel,sights|cartridge,firingpin|barrel,cartridge|frame,sights|cartridge,grip

@@ -1,0 +1,1 @@
+bwheel,fwheel|crank,frame|fork,fwheel|chain,fgears|crank,fgears|chain,rgears|frame,handle|brake,handle|crank,pedals|bwheel,rgears|fork,handle|frame,seat

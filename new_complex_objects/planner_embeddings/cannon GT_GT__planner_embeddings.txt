@@ -1,0 +1,1 @@
+sights,trunnions|barrel,chamber|fuse,gunpowder|barrel,gunpowder|chamber,sights|carriage,trunnions|gunpowder,trunnions|chamber,trunnions|barrel,sights|gunpowder,sights|gunpowder,vent|barrel,trunnions|chamber,gunpowder

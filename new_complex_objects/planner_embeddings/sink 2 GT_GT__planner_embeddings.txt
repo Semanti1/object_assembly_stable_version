@@ -1,0 +1,1 @@
+shutoff,watersupply|faucet,taps|basin,faucet|faucet,watersupply|sinktrap,tailpiece|basin,drain|drain,tailpiece

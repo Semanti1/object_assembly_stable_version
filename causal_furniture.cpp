@@ -22,10 +22,50 @@ CAUSAL_FURNITURE::CAUSAL_FURNITURE(std::string name = "kerosene_lamp", int numpa
     //Discount = 0.95;
   // names = { "kerosenetank","burner", "chimney", "wick", "lighter" };
   //  names = { "batteries", "switchandcircuit", "lens", "lightbulb"};
-  names = { "cord","outlet", "base", "lightbulb", "pullchain", "shade"};
+  //names = { "cord","outlet", "base", "lightbulb", "pullchain", "shade"};
+  //  names = { "neck","handle", "fender","fwheel","bwheel","deck","brake", "stand" };
+ // names = {}
   // names = { "backplate","lampbody","cord","lightbulb" };
   //  names = { "frame","grip","triggerguard","barrel","hammer","sights","trigger","magazine","firingpin","cartridge","slide" };
    // names = { "watersupply","taps","faucet","faucetaerator","basin", "shutoff", "tailpiece", "drain","sinktrap" };
+
+    if (furniture_name == "wall")
+        names = { "backplate","lampbody","cord","lightbulb" };
+    else if (furniture_name == "desk")
+        names = { "cord","outlet", "base", "lightbulb", "pullchain", "shade" };
+    else if (furniture_name == "flash")
+        names = { "batteries", "switchandcircuit", "lens", "lightbulb" };
+    else if (furniture_name == "kerosene")
+        names = { "kerosenetank","burner", "chimney", "wick", "lighter" };
+    else if (furniture_name == "scooter")
+        names = { "neck","handle", "fender","fwheel","bwheel","deck","brake", "stand" };
+    /*else if (furniture_name == "paddle")
+        names = { "hull","handle","rudder","pedals","seats","drain","wheel","shaft" };*/
+    else if (furniture_name == "pistol")
+        names = { "frame","grip","triggerguard","barrel","hammer","sights","trigger","magazine","firingpin","cartridge","slide" };
+    else if (furniture_name == "paddle")
+        names = { "hull","handle","rudder","pedals","seats","drain","wheels","shaft" };
+    else if (furniture_name == "cannon")
+        names = { "barrel","trunnions","carriage","fuse","vent","gunpowder","chamber","sights" };
+    else if (furniture_name == "sink")
+        names = { "shutoff","watersupply","faucet","taps","sinktrap","tailpiece","drain","basin" };
+    else if (furniture_name == "toilet")
+        names = { "tank","supply","float","handle","chain","flapper","refill","bowl","seat","closet" };
+    else if (furniture_name == "bicycle")
+        names = { "frame","handle","brake","fork","fwheel","seat","rgears","fgears","pedals","crank","chain","bwheel" };
+    else if (furniture_name == "tricycle")
+        names = { "frame","handle","fork","pedals","front","seat","right","left" };
+    else if (furniture_name == "standing_mixer")
+        names = { "circuit","cord","switch","motor","fan","control","gear","beaters","housing","bowl","frame" };
+    else if (furniture_name == "hand_mixer")
+        names = { "handle","body","crank","gears","beater" };
+    else
+    {
+        cout << "unknown object" << endl;
+        exit(1);
+    }
+
+
     cout << "numparts" << numParts << Discount <<endl;
     cout << "all pair size" << allpairs.size() << endl;
     
@@ -193,9 +233,155 @@ bool CAUSAL_FURNITURE::isValid(std::pair<std::string, std::string> connection) c
    // std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("backplate","lampbody"), std::make_pair("lampbody","lightbulb"), std::make_pair("cord","lightbulb") };
   //std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("kerosenetank", "burner"), std::make_pair("burner","wick"), std::make_pair("lighter","wick"),std::make_pair("chimney","burner") };
  // std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("batteries", "switchandcircuit"),std::make_pair("batteries", "lightbulb"), std::make_pair("switchandcircuit","lightbulb"), std::make_pair("lens","lightbulb") };
-   std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("outlet", "cord"),std::make_pair("cord", "lightbulb"), std::make_pair("base","lightbulb"), std::make_pair("pullchain","lightbulb"), std::make_pair("shade","lightbulb") };
+  // std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("outlet", "cord"),std::make_pair("cord", "lightbulb"), std::make_pair("base","lightbulb"), std::make_pair("pullchain","lightbulb"), std::make_pair("shade","lightbulb") };
    // std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("firingpin","slide"), std::make_pair("sights","slide"),std::make_pair("barrel","slide"),std::make_pair("trigger","hammer"),std::make_pair("hammer","slide"),std::make_pair("slide","frame"),std::make_pair("magazine","frame"),std::make_pair("trigger","frame"),std::make_pair("triggerguard","frame"),std::make_pair("grip","frame"),std::make_pair("cartridge","magazine") };
    // std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("shutoff","watersupply"),std::make_pair("watersupply","faucet"), std::make_pair("taps","faucet"), std::make_pair("faucetaerator","faucet"), std::make_pair("sinktrap","tailpiece"), std::make_pair("tailpiece", "drain"), std::make_pair("drain", "basin") };
+   // std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("neck","handle"),std::make_pair("neck","deck"),std::make_pair("neck","fender"),std::make_pair("neck","fwheel"),std::make_pair("deck","stand"), std::make_pair("deck","brake"), std::make_pair("deck","bwheel") };
+    std::vector<std::pair<std::string, std::string>> validconnections;
+
+    if (furniture_name == "wall")
+        validconnections = { std::make_pair("backplate","lampbody"), std::make_pair("lampbody","lightbulb"), std::make_pair("cord","lightbulb") };
+    else if (furniture_name == "desk")
+        validconnections = { std::make_pair("outlet", "cord"),std::make_pair("cord", "lightbulb"), std::make_pair("base","lightbulb"), std::make_pair("pullchain","lightbulb"), std::make_pair("shade","lightbulb") };
+    else if (furniture_name == "flash")
+        validconnections = { std::make_pair("batteries", "switchandcircuit"),std::make_pair("batteries", "lightbulb"), std::make_pair("switchandcircuit","lightbulb"), std::make_pair("lens","lightbulb") };
+    else if (furniture_name == "kerosene")
+        validconnections = { std::make_pair("kerosenetank", "burner"), std::make_pair("burner","wick"), std::make_pair("lighter","wick"),std::make_pair("chimney","burner") };
+    else if (furniture_name == "scooter")
+        validconnections = { std::make_pair("neck","handle"),std::make_pair("neck","deck"),std::make_pair("neck","fender"),std::make_pair("neck","fwheel"),std::make_pair("deck","stand"), std::make_pair("deck","brake"), std::make_pair("deck","bwheel") };
+    else if (furniture_name == "pistol")
+        validconnections = { std::make_pair("firingpin","slide"), std::make_pair("sights","slide"),std::make_pair("barrel","slide"),std::make_pair("trigger","hammer"),std::make_pair("hammer","slide"),std::make_pair("slide","frame"),std::make_pair("magazine","frame"),std::make_pair("trigger","frame"),std::make_pair("triggerguard","frame"),std::make_pair("grip","frame"),std::make_pair("cartridge","magazine"),std::make_pair("sights","barrel"),std::make_pair("frame","barrel") };
+    /*else if (furniture_name == "scooter")
+        validconnections = {
+            std::make_pair("neck","handle"),
+            std::make_pair("neck","deck"),
+            std::make_pair("neck","fender"),
+            std::make_pair("neck","fwheel"),
+            std::make_pair("deck","stand"),
+            std::make_pair("deck","brake"),
+            std::make_pair("deck","bwheel")
+    };*/
+    else if (furniture_name == "paddle")
+    {
+        validconnections = {
+       std::make_pair("hull","seats"),
+       std::make_pair("hull","pedals"),
+       std::make_pair("hull","handle"),
+       std::make_pair("hull","drain"),
+       std::make_pair("hull","wheels"),
+       std::make_pair("hull","shaft"),
+       std::make_pair("shaft","rudder"),
+       std::make_pair("hull","rudder"),
+       std::make_pair("pedals","wheels"),
+       std::make_pair("handle","shaft")
+        };
+    }
+    else if (furniture_name == "cannon")
+    {
+        validconnections = {
+         std::make_pair("barrel","trunnions"),
+         std::make_pair("carriage","barrel"),
+         std::make_pair("carriage","trunnions"),
+         std::make_pair("fuse","vent"),
+         std::make_pair("vent","gunpowder"),
+         std::make_pair("chamber","gunpowder"),
+         std::make_pair("barrel","sights"),
+         std::make_pair("barrel","gunpowder"),
+         std::make_pair("barrel","fuse")
+        };
+    }
+    else if (furniture_name == "sink")
+    {
+        validconnections = {
+       std::make_pair("shutoff","watersupply"),
+       std::make_pair("watersupply","faucet"),
+       std::make_pair("taps","faucet"),
+       std::make_pair("sinktrap","tailpiece"),
+       std::make_pair("tailpiece","drain"),
+       std::make_pair("drain","basin")
+        };
+    }
+    else if (furniture_name == "toilet")
+    {
+        validconnections = {
+       std::make_pair("tank","supply"),
+       std::make_pair("supply","float"),
+       std::make_pair("tank","handle"),
+       std::make_pair("handle","chain"),
+       std::make_pair("chain","flapper"),
+       std::make_pair("refill","flapper"),
+       std::make_pair("flapper","bowl"),
+       std::make_pair("bowl","seat"),
+       std::make_pair("bowl","closet"),
+       std::make_pair("refill","bowl"),
+       std::make_pair("flapper","tank")
+        };
+    }
+    else if (furniture_name == "bicycle")
+    {
+        validconnections = {
+         std::make_pair("frame","handle"),
+         std::make_pair("handle","brake"),
+         std::make_pair("frame","fork"),
+         std::make_pair("fork","fwheel"),
+         std::make_pair("frame","seat"),
+         std::make_pair("frame","rgears"),
+         std::make_pair("fgears","frame"),
+         std::make_pair("pedals","crank"),
+         std::make_pair("crank","fgears"),
+         std::make_pair("fgears","chain"),
+         std::make_pair("rgears","chain"),
+         std::make_pair("rgears","bwheel"),
+         std::make_pair("bwheel","frame")
+        };
+    }
+    else if (furniture_name == "tricycle")
+    {
+        validconnections = {
+         std::make_pair("frame","handle"),
+         std::make_pair("frame","fork"),
+         std::make_pair("handle","fork"),
+         std::make_pair("fork","pedals"),
+         std::make_pair("fork","front"),
+         std::make_pair("pedals","front"),
+         std::make_pair("frame","seat"),
+         std::make_pair("frame","right"),
+         std::make_pair("frame","left")
+        };
+    }
+    else if (furniture_name == "standing_mixer")
+    {
+        validconnections = {
+       std::make_pair("circuit","cord"),
+       std::make_pair("cord","switch"),
+       std::make_pair("switch","motor"),
+       std::make_pair("motor","fan"),
+       std::make_pair("motor","control"),
+       std::make_pair("motor","gear"),
+       std::make_pair("control","gear"),
+       std::make_pair("gear","beaters"),
+       std::make_pair("housing","beaters"),
+       std::make_pair("frame","housing"),
+       std::make_pair("housing","gear"),
+       std::make_pair("housing","motor"),
+       std::make_pair("bowl","frame")
+        };
+    }
+    else if (furniture_name == "hand_mixer")
+    {
+        validconnections = {
+        std::make_pair("handle","body"),
+        std::make_pair("crank","gears"),
+        std::make_pair("body","gears"),
+        std::make_pair("body","beater")
+        };
+    }
+    else
+    {
+        cout << "unknown object" << endl;
+        exit(1);
+    }
+    //std::vector<std::pair<std::string, std::string>> validconnections{ std::make_pair("circuit","cord"),std::make_pair("cord","switch"),std::make_pair("switch","motor"),std::make_pair("motor","fan"),std::make_pair("motor","gear"),std::make_pair("switch","gear"),std::make_pair("gear","beaters"),std::make_pair("housing","beaters"),std::make_pair("frame","housing"),std::make_pair("housing","gear"),std::make_pair("housing","motor"),std::make_pair("bowl","frame") };
     auto it3 = std::find_if(validconnections.begin(), validconnections.end(), [&](std::pair<std::string, std::string> obj) { return ((obj.first == connection.first) && (obj.second == connection.second)); });
     auto it4 = std::find_if(validconnections.begin(), validconnections.end(), [&](std::pair<std::string, std::string> obj) { return ((obj.first == connection.second) && (obj.second == connection.first)); });
     if ((validconnections.end() == it3) && (validconnections.end() == it4))

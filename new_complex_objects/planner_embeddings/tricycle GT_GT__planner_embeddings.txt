@@ -1,0 +1,1 @@
+fork,front|front,pedals|left,right|front,right|frame,handle|pedals,right|fork,handle|front,left|frame,pedals|left,pedals|frame,seat
